@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>First Class Dosa Bar | Dosa, idly and filter coffee, all day</title>
+<meta name="description" content="Stone-ground dosas, soft idlis and strong filter coffee. Served all day at First Class Dosa Bar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bangers&family=Comic+Neue:wght@700&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#B50B0B;
+  --red-deep:#8A0808;
+  --stub:#FBF3E8;
+  --ink:#1A1A1A;
+  --leaf:#2F6E3B;
+  --turmeric:#E9A21F;
+  --bg:#F4E2BC;
+  --surface:#FFF3DA;
+  --dot:rgba(181,11,11,.13);
+  --comic:"Comic Neue","Comic Sans MS","Chalkboard SE",cursive;
+  --sfx:"Bangers","Impact","Arial Black",sans-serif;
+  --text:#1A1A1A;
+  --muted:#5E5650;
+  --rule:rgba(26,26,26,.16);
+  --on-red:#FFFFFF;
+  --display:"Alfa Slab One", "Rockwell", "Roboto Slab", Georgia, serif;
+  --body:"Hanken Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1C1512;
+    --surface:#2A211C;
+    --dot:rgba(233,162,31,.10);
+    --text:#F5EDE3;
+    --muted:#B8ADA3;
+    --rule:rgba(245,237,227,.16);
+    --stub:#F3E8DA;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1C1512;
+  --surface:#2A211C;
+  --dot:rgba(233,162,31,.10);
+  --text:#F5EDE3;
+  --muted:#B8ADA3;
+  --rule:rgba(245,237,227,.16);
+  --stub:#F3E8DA;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:130px}
+body{margin:0;background-color:var(--bg);background-image:radial-gradient(var(--dot) 1.3px,transparent 1.6px);background-size:14px 14px;color:var(--text);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--turmeric);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* shared display type: slab with the logo's hard drop shadow */
+.slab{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-height:1.02}
+.shadowed{color:#fff;text-shadow:1px 1px 0 #000,2px 2px 0 #000,3px 3px 0 #000,4px 4px 0 #000,5px 5px 0 #000,6px 6px 0 #000}
+
+.btn{display:inline-flex;align-items:center;gap:.5em;border:0;cursor:pointer;text-decoration:none;font-weight:700;border-radius:999px;padding:.8em 1.4em;font-size:1rem;transition:transform .15s ease, background .15s ease}
+.btn:active{transform:translateY(1px)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-deep)}
+.btn-white{background:#fff;color:var(--red)}
+.btn-white:hover{background:var(--stub)}
+.btn-line{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.7)}
+.btn-line:hover{box-shadow:inset 0 0 0 2px #fff}
+
+/* ---------- announcement + nav ---------- */
+.announce{background:var(--ink);color:#fff;text-align:center;font-size:.9rem;padding:.55em 1em;font-weight:500}
+.announce b{color:var(--turmeric)}
+.nav{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:74px}
+.nav-logo{display:block;width:170px;flex:none}
+.nav-links{display:flex;gap:26px;margin-left:auto;list-style:none;padding:0}
+.nav-links a{text-decoration:none;font-weight:600}
+.nav-links a:hover{color:var(--red)}
+.theme-toggle{background:none;border:1px solid var(--rule);border-radius:999px;width:40px;height:40px;cursor:pointer;display:grid;place-items:center}
+@media (max-width:860px){.nav-links{display:none}.nav .wrap{justify-content:space-between}.nav-logo{width:140px}.nav .btn{display:none}}
+
+/* ---------- hero ticket ---------- */
+.hero{padding:48px 0 72px}
+.ticket{position:relative;background:var(--red);color:#fff;border-radius:22px;display:grid;grid-template-columns:120px 1fr 120px;min-height:560px;box-shadow:0 0 0 6px var(--bg),0 0 0 8px var(--red)}
+.ticket::before,.ticket::after{content:"";position:absolute;left:50%;width:56px;height:56px;background:var(--bg);transform:translateX(-50%) rotate(45deg);border-radius:6px}
+.ticket::before{top:-38px}
+.ticket::after{bottom:-38px}
+.stub{background:var(--stub);color:var(--ink);margin:26px 0;display:flex;align-items:center;justify-content:center;position:relative}
+.stub:first-child{margin-left:22px;border-radius:6px 0 0 6px}
+.stub:last-child{margin-right:22px;border-radius:0 6px 6px 0}
+.stub span{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:800;letter-spacing:.28em;font-size:1.05rem;padding:40px 0;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.stub:last-child span{transform:none}
+.punch{position:absolute;bottom:40px;left:50%;width:30px;height:30px;margin-left:-15px;border-radius:50%;background:var(--bg);box-shadow:inset 0 2px 3px rgba(0,0,0,.35)}
+.ticket-body{padding:56px clamp(24px,5vw,64px);display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center;border-inline:2px dashed rgba(255,255,255,.35)}
+.ticket-body h1{font-size:clamp(2.8rem,6.4vw,5.6rem);margin:0 0 .35em}
+.ticket-body .lede{font-size:1.2rem;max-width:34ch;margin:0 0 1.6em;color:rgba(255,255,255,.92)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.fields{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.5);margin-top:18px}
+.fields div{padding:16px 16px 0 0}
+.fields dt{font-size:.8rem;opacity:.8}
+.fields dd{margin:0;font-weight:700;font-size:1.05rem}
+.hero-art{position:relative}
+.hero-art svg{width:100%;height:auto;display:block;filter:drop-shadow(8px 10px 0 rgba(0,0,0,.28))}
+@media (max-width:980px){
+  .ticket{grid-template-columns:1fr}
+  .stub{display:none}
+  .ticket-body{grid-template-columns:1fr;border:0;padding-top:64px}
+  .hero-art{max-width:420px;order:-1;margin:0 auto}
+  .fields{grid-template-columns:repeat(2,1fr)}
+}
+
+/* one orchestrated moment: the ticket gets punched */
+@media (prefers-reduced-motion:no-preference){
+  .ticket{animation:arrive .7s cubic-bezier(.2,.9,.3,1.2) both}
+  .punch{animation:punch .35s .75s ease-out both}
+  @keyframes arrive{from{opacity:0;transform:translateY(24px) rotate(-1.5deg)}to{opacity:1;transform:none}}
+  @keyframes punch{0%{transform:scale(0)}70%{transform:scale(1.25)}100%{transform:scale(1)}}
+}
+
+/* ---------- section headings ---------- */
+.sec{padding:88px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.sec-head h2{font-size:clamp(2.2rem,4.6vw,3.6rem);margin:0;color:var(--red)}
+.sec-head p{margin:0;max-width:46ch;color:var(--muted)}
+
+/* ---------- menu ---------- */
+.tabs{position:sticky;top:74px;z-index:30;background:var(--bg);border-bottom:1px solid var(--rule);margin-bottom:12px}
+.tabs-inner{display:flex;gap:6px;overflow-x:auto;padding:12px 0;scrollbar-width:none}
+.tabs-inner::-webkit-scrollbar{display:none}
+.tab{flex:none;border:2px solid var(--text);background:transparent;border-radius:999px;padding:.45em 1.1em;font-weight:700;cursor:pointer;white-space:nowrap}
+.tab[aria-current="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.cat{padding:48px 0 12px;display:grid;grid-template-columns:300px 1fr;gap:48px;border-bottom:1px solid var(--rule)}
+.cat:last-of-type{border-bottom:0}
+.cat-side h3{font-size:2.2rem;margin:0 0 .3em}
+.cat-side p{color:var(--muted);margin:0 0 20px;max-width:32ch}
+.cat-side svg{width:100%;max-width:260px;height:auto}
+.items{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:44px}
+.item{padding:18px 0;border-bottom:1px dashed var(--rule);display:grid;grid-template-columns:1fr auto;gap:4px 16px}
+.item-top{display:flex;align-items:baseline;gap:8px;grid-column:1/2}
+.item-name{font-weight:800;font-size:1.12rem}
+.leader{flex:1;border-bottom:2px dotted var(--rule);transform:translateY(-4px);min-width:16px}
+.item-price{font-weight:800;color:var(--red)}
+.item-desc{grid-column:1/2;margin:0;color:var(--muted);font-size:.97rem;line-height:1.5}
+.item-tags{grid-column:1/2;display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.tag{font-size:.78rem;font-weight:700;padding:.1em .6em;border-radius:4px;background:var(--surface);color:var(--text)}
+.tag.sig{background:var(--red);color:#fff}
+.tag.hot{color:var(--red)}
+.add{grid-column:2/3;grid-row:1/4;align-self:center;border:2px solid var(--red);background:transparent;color:var(--red);border-radius:999px;font-weight:800;padding:.35em .9em;cursor:pointer;min-width:74px}
+.add:hover{background:var(--red);color:#fff}
+.add.in{background:var(--red);color:#fff}
+@media (max-width:1000px){.cat{grid-template-columns:1fr;gap:12px}.cat-side svg{max-width:180px}.items{grid-template-columns:1fr}}
+
+/* ---------- process ---------- */
+.process{background:var(--surface)}
+.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.steps li{padding:0 28px 0 0;position:relative}
+.steps li+li{padding-left:28px;border-left:2px dashed var(--rule)}
+.steps .n{font-family:var(--display);font-size:3.2rem;color:var(--red);line-height:1}
+.steps h3{margin:.3em 0 .2em;font-size:1.3rem}
+.steps .time{font-weight:700}
+.steps p{margin:.3em 0 0;color:var(--muted)}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr;gap:36px 0}.steps li:nth-child(3){border-left:0;padding-left:0}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}.steps li+li{border-left:0;padding-left:0}}
+
+/* ---------- coffee ---------- */
+.coffee{background:var(--red);color:#fff;overflow:hidden}
+.coffee .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.coffee h2{font-size:clamp(2.4rem,5vw,4.2rem);margin:0 0 .4em}
+.coffee p{max-width:44ch;color:rgba(255,255,255,.92)}
+.strength{display:flex;gap:0;border:2px solid #fff;border-radius:999px;padding:4px;width:max-content;max-width:100%;margin:22px 0 16px}
+.strength button{border:0;background:transparent;color:#fff;font-weight:700;padding:.5em 1.1em;border-radius:999px;cursor:pointer}
+.strength button[aria-pressed="true"]{background:#fff;color:var(--red)}
+.strength-note{min-height:3.2em;font-weight:500}
+.coffee-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.coffee-price{font-family:var(--display);font-size:2rem}
+.coffee svg{width:100%;height:auto}
+@media (max-width:860px){.coffee .wrap{grid-template-columns:1fr}.coffee-art{max-width:360px;margin:0 auto;order:-1}}
+
+/* ---------- punch card ---------- */
+.card-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.punchcard{background:var(--stub);color:var(--ink);border-radius:14px;padding:28px;border:2px solid var(--red);position:relative}
+.punchcard h3{font-family:var(--display);font-weight:400;color:var(--red);margin:0 0 4px;font-size:1.6rem}
+.holes{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:20px}
+.hole{aspect-ratio:1;border-radius:50%;border:2px dashed var(--red);display:grid;place-items:center;font-weight:800;font-size:.85rem;color:var(--red);background:transparent;cursor:pointer}
+.hole.done{background:var(--ink);border:2px solid var(--ink);color:var(--stub)}
+.hole.free{border-style:solid;background:var(--red);color:#fff}
+.punch-hint{font-size:.9rem;margin:14px 0 0;color:#5E5650}
+@media (max-width:860px){.card-row{grid-template-columns:1fr}}
+
+/* ---------- visit + reserve ---------- */
+.visit{border-top:1px solid var(--rule)}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.outlet{padding:22px 0;border-bottom:1px solid var(--rule)}
+.outlet h3{margin:0;font-size:1.3rem}
+.outlet p{margin:.2em 0;color:var(--muted)}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:4px 24px;margin-top:22px}
+.hours dt{font-weight:700}
+.hours dd{margin:0;color:var(--muted)}
+.reserve{background:var(--surface);border-radius:18px;padding:32px}
+.reserve h3{font-family:var(--display);font-weight:400;font-size:2rem;color:var(--red);margin:0 0 .2em}
+.reserve > p{color:var(--muted);margin:0 0 20px}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form .full{grid-column:1/-1}
+.form label{display:block;font-weight:700;font-size:.9rem;margin-bottom:4px}
+.form input,.form select{width:100%;padding:.75em .9em;border-radius:10px;border:2px solid var(--rule);background:var(--bg)}
+.form input:focus,.form select:focus{border-color:var(--red);outline:none}
+.err{color:var(--red);font-size:.85rem;font-weight:600;min-height:1.2em;margin:4px 0 0}
+.done-msg{padding:20px;border-radius:12px;background:var(--bg);border-left:6px solid var(--leaf)}
+.done-msg h4{margin:0 0 4px;font-size:1.2rem}
+.done-msg p{margin:0;color:var(--muted)}
+@media (max-width:860px){.visit-grid{grid-template-columns:1fr}.form{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:#EDE6DD;padding:64px 0 120px}
+.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:36px}
+.foot h4{margin:0 0 10px;color:#fff}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li{margin:6px 0}
+.foot a{text-decoration:none;color:#EDE6DD}
+.foot a:hover{color:#fff;text-decoration:underline}
+.news{display:flex;gap:8px;margin-top:10px}
+.news input{flex:1;min-width:0;padding:.7em .9em;border-radius:999px;border:0;background:#2a2a2a;color:#fff}
+.small{font-size:.85rem;color:#A79F97;margin-top:40px}
+.foot > div{min-width:0}
+@media (max-width:860px){.foot{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.foot{grid-template-columns:1fr}.news{flex-wrap:wrap}.news input{flex-basis:100%}}
+body{overflow-x:clip}
+
+/* ---------- order tray ---------- */
+.tray-btn{position:fixed;right:20px;bottom:20px;z-index:50;display:none}
+.tray-btn.show{display:inline-flex;box-shadow:4px 4px 0 #000}
+.drawer{position:fixed;inset:0;z-index:60;display:none}
+.drawer.open{display:block}
+.scrim{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+.panel{position:absolute;top:0;right:0;height:100%;width:min(420px,100%);background:var(--bg);display:flex;flex-direction:column}
+.panel-head{background:var(--red);color:#fff;padding:22px 24px;display:flex;justify-content:space-between;align-items:center}
+.panel-head h2{margin:0;font-size:1.8rem}
+.close{background:none;border:0;color:#fff;font-size:1.8rem;cursor:pointer;line-height:1}
+.lines{flex:1;overflow:auto;padding:8px 24px;list-style:none;margin:0}
+.line{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:14px 0;border-bottom:1px dashed var(--rule)}
+.qty{display:flex;align-items:center;gap:10px}
+.qty button{width:30px;height:30px;border-radius:50%;border:2px solid var(--text);background:transparent;font-weight:800;cursor:pointer}
+.panel-foot{padding:20px 24px;border-top:1px solid var(--rule)}
+.total{display:flex;justify-content:space-between;font-weight:800;font-size:1.2rem;margin-bottom:14px}
+.panel-foot .btn{width:100%;justify-content:center}
+.empty{padding:40px 0;color:var(--muted)}
+
+
+/* ---------- comic strip ---------- */
+.comic{padding:24px 0 88px}
+.comic-page{background:#FFF8E6;border:4px solid #111;box-shadow:12px 12px 0 #111;padding:14px;transform:rotate(-.4deg)}
+.comic-title{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.comic-title h2{margin:0;font-family:var(--sfx);font-weight:400;letter-spacing:.04em;font-size:clamp(2rem,4.4vw,3.4rem);color:var(--red);-webkit-text-stroke:1.5px #111;text-shadow:4px 4px 0 #111;line-height:1}
+.comic-title p{margin:0;font-family:var(--comic);font-weight:700;color:#3a2a20;max-width:40ch}
+.panels{display:grid;grid-template-columns:1.25fr 1fr;gap:14px}
+.cpanel{position:relative;border:4px solid #111;background:#F2D9A0;overflow:hidden;margin:0}
+.cpanel:nth-child(2){transform:rotate(.6deg)}
+.cpanel:nth-child(3){transform:rotate(-.5deg)}
+.cpanel svg{display:block;width:100%;height:auto}
+.cpanel figcaption{position:absolute;top:0;left:0;background:#FFE08A;border:0 solid #111;border-right-width:3px;border-bottom-width:3px;padding:3px 10px;font-family:var(--comic);font-weight:700;font-size:.9rem;color:#111}
+
+
+
+@media (max-width:760px){.cpanel figcaption{font-size:.7rem;padding:1px 6px}.panels{grid-template-columns:1fr}.panels .cpanel:nth-child(n){grid-column:auto;transform:none}.comic-page{transform:none;box-shadow:6px 6px 0 #111}}
+.bubble-t{font-family:var(--comic);font-weight:700}
+.sfx{font-family:var(--sfx)}
+@media (prefers-reduced-motion:no-preference){
+  .leg{transform-box:fill-box;transform-origin:50% 0;animation:swing .32s ease-in-out infinite alternate}
+  .leg.b{animation-direction:alternate-reverse}
+  .arm-swing{transform-box:fill-box;transform-origin:0 0;animation:swing .32s ease-in-out infinite alternate-reverse}
+  .bob{animation:bob .32s ease-in-out infinite alternate}
+  .steam path{animation:steam 1.6s ease-in-out infinite}
+  .steam path:nth-child(2){animation-delay:.4s}.steam path:nth-child(3){animation-delay:.8s}
+  .pop{transform-box:fill-box;transform-origin:center;animation:pop 1.4s ease-in-out infinite}
+  .chew{transform-box:fill-box;transform-origin:center;animation:chew .5s ease-in-out infinite alternate}
+  .dash{animation:dash .5s linear infinite}
+  @keyframes swing{from{transform:rotate(30deg)}to{transform:rotate(-30deg)}}
+  @keyframes bob{from{transform:translateY(0)}to{transform:translateY(-5px)}}
+  @keyframes steam{0%{opacity:0;transform:translateY(8px)}40%{opacity:.9}100%{opacity:0;transform:translateY(-16px)}}
+  @keyframes pop{0%,100%{transform:scale(1) rotate(-8deg)}50%{transform:scale(1.12) rotate(-4deg)}}
+  @keyframes chew{from{transform:scaleY(1)}to{transform:scaleY(.4)}}
+  @keyframes dash{from{transform:translateX(0);opacity:1}to{transform:translateX(-18px);opacity:0}}
+}
+
+/* ---------- side runner ---------- */
+.runner{position:fixed;left:10px;bottom:18px;z-index:44;width:118px;cursor:pointer;background:none;border:0;padding:0;text-align:left}
+.runner svg{width:100%;height:auto;display:block;filter:drop-shadow(3px 3px 0 rgba(0,0,0,.25))}
+.runner-say{display:block;position:relative;background:#fff;color:#111;border:3px solid #111;border-radius:18px;padding:6px 10px;font-family:var(--comic);font-weight:700;font-size:.95rem;line-height:1.2;margin:0 0 6px 30px;width:max-content;max-width:150px;box-shadow:3px 3px 0 #111}
+.runner-say::after{content:"";position:absolute;left:18px;bottom:-12px;border:6px solid transparent;border-top:8px solid #111}
+.runner-x{position:fixed;left:116px;bottom:160px;z-index:45;width:26px;height:26px;border-radius:50%;border:2px solid #111;background:#FFE08A;font-weight:800;cursor:pointer;line-height:1;padding:0}
+.runner.hide,.runner-x.hide{display:none}
+@media (prefers-reduced-motion:no-preference){
+  .runner-track{animation:patrol 7s ease-in-out infinite}
+  @keyframes patrol{0%,100%{transform:translateX(0)}50%{transform:translateX(26px)}}
+}
+@media (max-width:860px){.runner{width:70px;bottom:64px;left:4px}.runner-say{font-size:.72rem;margin-left:4px;padding:3px 7px}.runner-x{left:66px;bottom:150px;width:22px;height:22px}}
+
+/* mobile bottom bar */
+.bottombar{display:none}
+@media (max-width:860px){
+  .bottombar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:45;background:var(--ink)}
+  .bottombar a,.bottombar button{padding:16px;text-align:center;font-weight:800;text-decoration:none;color:#fff;border:0;background:transparent;cursor:pointer}
+  .bottombar button{background:var(--red)}
+  .tray-btn{display:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="announce">Filter coffee is <b>₹30</b> before 9am, every weekday.</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="nav-logo" aria-label="First Class Dosa Bar home">
+      <svg viewBox="0 0 1600 620" role="img" aria-hidden="true">
+        <path d="M85,20 H1515 A40,40 0 0 0 1555,60 V560 A40,40 0 0 0 1515,600 H85 A40,40 0 0 0 45,560 V60 A40,40 0 0 0 85,20 Z" fill="none" stroke="#B50B0B" stroke-width="10"/>
+        <path d="M85,55 H770 L800,90 L830,55 H1515 V565 H830 L800,530 L770,565 H85 Z" fill="#B50B0B"/>
+        <rect x="88" y="85" width="112" height="450" fill="#FBF3E8"/>
+        <rect x="1400" y="85" width="112" height="450" fill="#FBF3E8"/>
+        <text x="800" y="380" text-anchor="middle" font-family="Alfa Slab One, Georgia, serif" font-size="210" textLength="1120" lengthAdjust="spacingAndGlyphs" fill="#000">FIRST CLASS</text>
+        <text x="790" y="370" text-anchor="middle" font-family="Alfa Slab One, Georgia, serif" font-size="210" textLength="1120" lengthAdjust="spacingAndGlyphs" fill="#fff">FIRST CLASS</text>
+      </svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#how">How we make it</a></li>
+      <li><a href="#coffee">Filter coffee</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch light or dark theme">◐</button>
+    <button class="btn btn-red" data-open-order>Order now</button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="ticket">
+      <div class="stub"><span>DOSA BAR</span><i class="punch" aria-hidden="true"></i></div>
+      <div class="ticket-body">
+        <div>
+          <h1 class="slab shadowed">Ride first class.</h1>
+          <p class="lede">Batter stone-ground every morning, fermented overnight and spread paper-thin on a hot tawa. Crisp dosa, soft idly, strong coffee. All day.</p>
+          <div class="hero-cta">
+            <button class="btn btn-white" data-open-order>Order now</button>
+            <a class="btn btn-line" href="#menu">See the menu</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <svg viewBox="0 0 420 320" aria-label="Illustration of a masala dosa on a banana leaf with chutneys">
+            <ellipse cx="210" cy="200" rx="200" ry="95" fill="#F3EBDD"/>
+            <ellipse cx="210" cy="196" rx="176" ry="76" fill="#2F6E3B"/>
+            <path d="M60,196 Q210,120 380,152" stroke="#23552D" stroke-width="3" fill="none"/>
+            <path d="M42,180 Q210,112 372,138 L366,204 Q210,226 50,222 Z" fill="#D8892A"/>
+            <path d="M42,180 Q210,112 372,138 L370,158 Q210,140 46,196 Z" fill="#EAA53C"/>
+            <g stroke="#A9601A" stroke-width="3" stroke-linecap="round" fill="none" opacity=".75">
+              <path d="M90,178 l18,-6"/><path d="M140,165 l22,-5"/><path d="M200,152 l20,-3"/><path d="M260,146 l24,-1"/><path d="M110,208 l24,-2"/><path d="M180,212 l28,-1"/><path d="M250,208 l26,-2"/><path d="M310,196 l22,-3"/>
+            </g>
+            <ellipse cx="368" cy="171" rx="16" ry="34" fill="#F4C94A" stroke="#A9601A" stroke-width="4"/>
+            <circle cx="362" cy="160" r="4" fill="#2F6E3B"/><circle cx="372" cy="182" r="3" fill="#C0392B"/>
+            <g>
+              <ellipse cx="108" cy="268" rx="40" ry="18" fill="#C9C4BC"/><ellipse cx="108" cy="262" rx="34" ry="13" fill="#F6F2E6"/><circle cx="100" cy="260" r="2.5" fill="#2F6E3B"/>
+              <ellipse cx="204" cy="280" rx="40" ry="18" fill="#C9C4BC"/><ellipse cx="204" cy="274" rx="34" ry="13" fill="#D2452F"/>
+              <ellipse cx="300" cy="272" rx="40" ry="18" fill="#C9C4BC"/><ellipse cx="300" cy="266" rx="34" ry="13" fill="#C27A2C"/><circle cx="292" cy="264" r="3" fill="#F4C94A"/><circle cx="308" cy="268" r="3" fill="#2F6E3B"/>
+            </g>
+          </svg>
+        </div>
+        <dl class="fields">
+          <div><dt>Departs</dt><dd>7:00 am daily</dd></div>
+          <div><dt>Arrives</dt><dd>Hot, in 4 minutes</dd></div>
+          <div><dt>Last call</dt><dd>11:00 pm</dd></div>
+          <div><dt>Fares from</dt><dd>₹40</dd></div>
+        </dl>
+      </div>
+      <div class="stub"><span>ALL DAY</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- COMIC STRIP -->
+<section class="comic" aria-labelledby="comic-title">
+  <div class="wrap">
+    <div class="comic-page">
+      <div class="comic-title">
+        <h2 id="comic-title">Lunch break at First Class</h2>
+        <p>Every day, someone orders the 2-foot paper roast. Every day, someone tries to steal a bite.</p>
+      </div>
+      <div class="panels" id="panels"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" aria-labelledby="menu-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="menu-title" class="slab">The menu</h2>
+      <p>Everything is vegetarian. Chutneys and sambar refill free, as many times as you like. Ask for Jain on any dosa.</p>
+    </div>
+  </div>
+  <nav class="tabs" aria-label="Menu categories">
+    <div class="wrap tabs-inner" id="tabs"></div>
+  </nav>
+  <div class="wrap" id="menuBody"></div>
+</section>
+
+<!-- PROCESS -->
+<section id="how" class="sec process" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="how-title" class="slab">How a dosa gets here</h2>
+      <p>No packet mix, no shortcuts. It takes about a day to make batter that cooks in 90 seconds.</p>
+    </div>
+    <ol class="steps">
+      <li><div class="n">1</div><h3>Soak</h3><div class="time">6 hours</div><p>Ponni rice and urad dal soak separately with a spoon of methi seeds.</p></li>
+      <li><div class="n">2</div><h3>Grind</h3><div class="time">40 minutes</div><p>A wet stone grinder turns it slow and cool, so the batter stays airy.</p></li>
+      <li><div class="n">3</div><h3>Ferment</h3><div class="time">Overnight</div><p>It rises and turns gently sour. That tang is the whole point.</p></li>
+      <li><div class="n">4</div><h3>Spread</h3><div class="time">90 seconds</div><p>One ladle, one spiral on a seasoned cast-iron tawa, a brush of ghee.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- COFFEE -->
+<section id="coffee" class="sec coffee" aria-labelledby="coffee-title">
+  <div class="wrap">
+    <div class="coffee-art">
+      <svg viewBox="0 0 360 380" aria-label="Illustration of filter coffee in a steel tumbler and davara">
+        <g stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" opacity=".7">
+          <path d="M150,70 q-14,-20 0,-40 q14,-20 0,-40"/><path d="M190,80 q-14,-22 0,-44 q14,-22 0,-44"/><path d="M230,70 q-14,-20 0,-40 q14,-20 0,-40"/>
+        </g>
+        <path d="M40,280 L70,350 H290 L320,280 Z" fill="#C9CDD2"/>
+        <path d="M40,280 H320 L312,298 H48 Z" fill="#E8EBEE"/>
+        <ellipse cx="180" cy="280" rx="140" ry="18" fill="#9DA3A9"/>
+        <ellipse cx="180" cy="280" rx="126" ry="13" fill="#6B3E1F"/>
+        <path d="M118,110 L136,290 H224 L242,110 Z" fill="#D6DADE"/>
+        <path d="M118,110 L126,190 H234 L242,110 Z" fill="#E8EBEE"/>
+        <path d="M150,120 L162,280" stroke="#fff" stroke-width="8" opacity=".6" stroke-linecap="round"/>
+        <ellipse cx="180" cy="110" rx="62" ry="14" fill="#A9AFB5"/>
+        <ellipse cx="180" cy="110" rx="54" ry="10" fill="#D9B48A"/>
+        <ellipse cx="172" cy="108" rx="20" ry="4" fill="#EED6B8"/>
+      </svg>
+    </div>
+    <div>
+      <h2 id="coffee-title" class="slab shadowed">Filter coffee, poured from a height.</h2>
+      <p>Our decoction drips slowly through a brass filter, 80:20 coffee to chicory, then meets boiling milk and gets tossed between tumbler and davara until the froth stands up.</p>
+      <div class="strength" role="group" aria-label="Choose coffee strength">
+        <button type="button" data-s="light" aria-pressed="false">Light</button>
+        <button type="button" data-s="regular" aria-pressed="true">Regular</button>
+        <button type="button" data-s="strong" aria-pressed="false">Strong</button>
+      </div>
+      <p class="strength-note" id="strengthNote" aria-live="polite"></p>
+      <div class="coffee-row">
+        <span class="coffee-price" id="coffeePrice">₹40</span>
+        <button class="btn btn-white" id="addCoffee">Add to order</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUNCH CARD -->
+<section class="sec" aria-labelledby="card-title">
+  <div class="wrap card-row">
+    <div>
+      <div class="sec-head" style="margin-bottom:12px"><h2 id="card-title" class="slab">The frequent traveller card</h2></div>
+      <p style="max-width:46ch;color:var(--muted)">Every order earns a punch. Collect nine and your tenth dosa or coffee is on us. It lives on your phone number, so there is no card to lose.</p>
+      <button class="btn btn-red" id="joinCard">Join with your phone number</button>
+    </div>
+    <div class="punchcard">
+      <h3>First Class traveller</h3>
+      <div style="font-weight:600">Tap a hole to see how it fills up</div>
+      <div class="holes" id="holes"></div>
+      <p class="punch-hint" id="punchHint">0 of 9 punches. Your 10th is free.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section id="visit" class="sec visit" aria-labelledby="visit-title">
+  <div class="wrap visit-grid">
+    <div>
+      <div class="sec-head" style="margin-bottom:8px"><h2 id="visit-title" class="slab">Come aboard</h2></div>
+      <div class="outlet">
+        <h3>The Flagship</h3>
+        <p>12 Station Road, near Platform Circle</p>
+        <p>+91 00000 00000</p>
+      </div>
+      <div class="outlet">
+        <h3>The Express Counter</h3>
+        <p>Ground floor, Central Mall food court. Takeaway only.</p>
+        <p>+91 00000 00001</p>
+      </div>
+      <dl class="hours">
+        <dt>Mon to Fri</dt><dd>7:00 am to 11:00 pm</dd>
+        <dt>Sat and Sun</dt><dd>6:30 am to 11:30 pm</dd>
+        <dt>Kitchen breaks</dt><dd>Never. That is the point of all day.</dd>
+      </dl>
+    </div>
+    <div class="reserve" id="reserve">
+      <h3>Book a table</h3>
+      <p>Weekend breakfasts fill up by 9am. Groups of 8 or more, give us a call.</p>
+      <form class="form" id="bookForm" novalidate>
+        <div class="full"><label for="bName">Name</label><input id="bName" autocomplete="name"><p class="err" id="eName"></p></div>
+        <div><label for="bPhone">Phone</label><input id="bPhone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile"><p class="err" id="ePhone"></p></div>
+        <div><label for="bGuests">Guests</label><select id="bGuests"><option>2</option><option>1</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select><p class="err"></p></div>
+        <div><label for="bDate">Date</label><input id="bDate" type="date"><p class="err" id="eDate"></p></div>
+        <div><label for="bTime">Time</label><select id="bTime"></select><p class="err"></p></div>
+        <div class="full"><button class="btn btn-red" type="submit">Book table</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="slab" style="font-size:2rem;color:#fff">First Class</div>
+        <p style="margin:.3em 0 0;color:#A79F97">Dosa bar, all day.</p>
+      </div>
+      <div>
+        <h4>Eat</h4>
+        <ul><li><a href="#menu">Menu</a></li><li><a href="#" data-open-order>Order online</a></li><li><a href="#reserve">Book a table</a></li><li><a href="#visit">Catering</a></li></ul>
+      </div>
+      <div>
+        <h4>First Class</h4>
+        <ul><li><a href="#how">Our kitchen</a></li><li><a href="#visit">Locations</a></li><li><a href="#visit">Franchise with us</a></li><li><a href="#visit">Careers</a></li></ul>
+      </div>
+      <div>
+        <h4>New dosas, first</h4>
+        <p style="margin:0;color:#A79F97">One email a month when the specials board changes.</p>
+        <form class="news" id="newsForm" novalidate>
+          <label for="nEmail" class="sr">Email</label>
+          <input id="nEmail" type="email" placeholder="you@email.com">
+          <button class="btn btn-red" type="submit">Subscribe</button>
+        </form>
+        <p class="err" id="nMsg" style="color:#F2B6A8" aria-live="polite"></p>
+      </div>
+    </div>
+    <p class="small">© 2026 First Class Dosa Bar. Instagram, Swiggy and Zomato links go here.</p>
+  </div>
+</footer>
+
+<button class="btn btn-red tray-btn" id="trayBtn" data-open-order></button>
+
+
+<button class="runner" id="runner" aria-label="Order a dosa">
+  <span class="runner-say" id="runnerSay" aria-live="polite">Dosa time!!</span>
+  <span class="runner-track" style="display:block"><svg id="runnerSvg" viewBox="-70 -200 150 210" aria-hidden="true"></svg></span>
+</button>
+<button class="runner-x" id="runnerX" aria-label="Hide the cartoon">×</button>
+
+<div class="bottombar">
+  <a href="#menu">Full menu</a>
+  <button data-open-order id="barOrder">Order now</button>
+</div>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="scrim" data-close></div>
+  <aside class="panel" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+    <div class="panel-head">
+      <h2 id="orderTitle" class="slab">Your order</h2>
+      <button class="close" data-close aria-label="Close order">×</button>
+    </div>
+    <div id="orderContent" style="flex:1;display:flex;flex-direction:column;min-height:0"></div>
+  </aside>
+</div>
+
+<script>
+const MENU = [
+  { id:"dosa", name:"Benne dosas", blurb:"Davanagere style. A generous spoon of fresh white butter goes on the tawa first, so the dosa comes off crisp at the edge and soft in the middle. Served with coconut chutney, red chutney and sambar.", art:"dosa", items:[
+    {id:"d1", name:"Classic benne dosa", price:130, desc:"The one we are known for. Golden, buttery, crisp at the rim, with a cube of white butter melting on top.", tags:["sig"]},
+    {id:"d2", name:"Benne masala dosa", price:150, desc:"Folded over potato palya with mustard, curry leaf and onion.", tags:["sig"]},
+    {id:"d3", name:"Open benne butter dosa", price:160, desc:"Thick and soft, served flat and open with a pool of butter in the centre.", tags:["sig"]},
+    {id:"d4", name:"Benne podi dosa", price:150, desc:"Our gunpowder of roasted dal, chilli and sesame, pressed into the butter.", tags:["hot"]},
+    {id:"d5", name:"Benne kara dosa", price:160, desc:"Spicy red garlic chutney spread inside, potato palya over it.", tags:["hot"]},
+    {id:"d6", name:"Benne khali dosa", price:120, desc:"No masala, no filling. Just butter, batter and a hot tawa.", tags:[]},
+    {id:"d7", name:"Benne set dosa", price:140, desc:"Three small, spongy benne dosas served with vegetable saagu.", tags:[]},
+    {id:"d8", name:"Benne onion dosa", price:150, desc:"Chopped onion, green chilli and coriander pressed into the butter side.", tags:[]},
+    {id:"d9", name:"Paper roast, 2 feet", price:190, desc:"Our longest dosa, thin and crackling. Best shared, best photographed.", tags:["sig"]}
+  ]},
+  { id:"idly", name:"Idly and vada", blurb:"Steamed soft enough to press flat with a finger. Fried golden with a hole in the middle.", art:"idly", items:[
+    {id:"i1", name:"Idly, 2 pieces", price:60, desc:"Pillowy rice cakes with chutney and sambar.", tags:[]},
+    {id:"i2", name:"Ghee podi idly", price:90, desc:"Tossed in ghee and gunpowder until every side is coated.", tags:["sig","hot"]},
+    {id:"i3", name:"Button idly sambar", price:110, desc:"Fourteen tiny idlis swimming in a bowl of hot sambar.", tags:[]},
+    {id:"i4", name:"Thatte idly", price:90, desc:"One wide, plate-sized idly. Extra soft.", tags:[]},
+    {id:"i5", name:"Rava idly", price:80, desc:"Semolina, cashew, carrot and coriander, with sagu.", tags:[]},
+    {id:"i6", name:"Medu vada, 2 pieces", price:70, desc:"Urad dal vada, crisp shell, fluffy inside, peppercorns throughout.", tags:[]},
+    {id:"i7", name:"Sambar vada", price:80, desc:"Vada soaked in sambar with onion and a spoon of ghee.", tags:[]},
+    {id:"i8", name:"Idly vada combo", price:110, desc:"One idly, one vada, all the chutneys. The classic breakfast.", tags:["sig"]}
+  ]},
+  { id:"coffee", name:"Coffee and drinks", blurb:"Fresh decoction every two hours. Served in steel, the way it should be.", art:"coffee", items:[
+    {id:"c1", name:"Filter coffee", price:40, desc:"Our 80:20 coffee and chicory blend with boiling milk, frothed by hand.", tags:["sig"]},
+    {id:"c2", name:"Strong filter coffee", price:50, desc:"Double decoction, less milk.", tags:[]},
+    {id:"c3", name:"Jaggery filter coffee", price:60, desc:"Sweetened with palm jaggery instead of sugar.", tags:[]},
+    {id:"c4", name:"Cold filter coffee", price:90, desc:"Decoction shaken with chilled milk and ice.", tags:[]},
+    {id:"c5", name:"Masala chai", price:35, desc:"Ginger, cardamom and a little clove.", tags:[]},
+    {id:"c6", name:"Neer mor", price:40, desc:"Spiced buttermilk with curry leaf, ginger and green chilli.", tags:[]}
+  ]},
+  { id:"sweet", name:"Sweets", blurb:"Something small to finish, or to start if nobody is watching.", art:"sweet", items:[
+    {id:"s1", name:"Kesari bath", price:70, desc:"Semolina halwa with ghee, saffron, cashew and raisins.", tags:[]},
+    {id:"s2", name:"Mysore pak", price:60, desc:"Gram flour, sugar and a lot of ghee. Melts on the tongue.", tags:[]},
+    {id:"s3", name:"Paal payasam", price:80, desc:"Rice slow-cooked in milk until it turns pale pink.", tags:[]},
+    {id:"s4", name:"Sweet pongal", price:70, desc:"Rice and moong dal with jaggery and cardamom.", tags:[]}
+  ]}
+];
+
+const ART = {
+  dosa:`<svg viewBox="0 0 260 150" aria-hidden="true"><ellipse cx="130" cy="100" rx="126" ry="46" fill="#2F6E3B"/><path d="M20,92 Q130,40 244,62 L240,108 Q130,124 26,116 Z" fill="#D8892A"/><path d="M20,92 Q130,40 244,62 L242,76 Q130,62 22,104 Z" fill="#EAA53C"/><ellipse cx="240" cy="85" rx="10" ry="23" fill="#F4C94A" stroke="#A9601A" stroke-width="3"/></svg>`,
+  idly:`<svg viewBox="0 0 260 150" aria-hidden="true"><ellipse cx="130" cy="104" rx="124" ry="42" fill="#C9CDD2"/><ellipse cx="130" cy="98" rx="112" ry="34" fill="#E8EBEE"/><ellipse cx="80" cy="92" rx="40" ry="18" fill="#FBF7EC"/><ellipse cx="80" cy="86" rx="36" ry="12" fill="#FFFFFF"/><ellipse cx="148" cy="100" rx="40" ry="18" fill="#FBF7EC"/><ellipse cx="148" cy="94" rx="36" ry="12" fill="#FFFFFF"/><ellipse cx="206" cy="80" rx="28" ry="14" fill="#C9CDD2"/><ellipse cx="206" cy="76" rx="24" ry="9" fill="#C27A2C"/></svg>`,
+  coffee:`<svg viewBox="0 0 260 150" aria-hidden="true"><path d="M60,118 L74,146 H186 L200,118 Z" fill="#C9CDD2"/><ellipse cx="130" cy="118" rx="70" ry="9" fill="#6B3E1F"/><path d="M104,34 L112,120 H148 L156,34 Z" fill="#D6DADE"/><ellipse cx="130" cy="34" rx="28" ry="7" fill="#D9B48A"/></svg>`,
+  sweet:`<svg viewBox="0 0 260 150" aria-hidden="true"><ellipse cx="130" cy="110" rx="110" ry="34" fill="#C9CDD2"/><ellipse cx="130" cy="104" rx="98" ry="26" fill="#E8EBEE"/><path d="M70,100 q30,-44 60,0 z" fill="#E9A21F"/><circle cx="96" cy="86" r="3" fill="#8A5A2B"/><rect x="146" y="74" width="34" height="30" rx="3" fill="#F2C35C"/><rect x="186" y="78" width="30" height="26" rx="3" fill="#E9B246"/></svg>`
+};
+
+const TAGLABEL = {sig:"Signature", hot:"Spicy"};
+const allItems = {};
+MENU.forEach(c => c.items.forEach(i => allItems[i.id] = i));
+
+const fmt = n => "₹" + n.toLocaleString("en-IN");
+const esc = s => s.replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+
+/* ---------- render menu ---------- */
+const tabs = document.getElementById("tabs");
+const body = document.getElementById("menuBody");
+tabs.innerHTML = MENU.map((c,i) => `<button class="tab" data-target="${c.id}" aria-current="${i===0}">${c.name}</button>`).join("");
+body.innerHTML = MENU.map(c => `
+  <section class="cat" id="cat-${c.id}" aria-labelledby="h-${c.id}">
+    <div class="cat-side">
+      <h3 id="h-${c.id}" class="slab">${c.name}</h3>
+      <p>${c.blurb}</p>
+      ${ART[c.art]}
+    </div>
+    <ul class="items">
+      ${c.items.map(it => `
+        <li class="item">
+          <div class="item-top"><span class="item-name">${it.name}</span><span class="leader" aria-hidden="true"></span><span class="item-price">${fmt(it.price)}</span></div>
+          <p class="item-desc">${it.desc}</p>
+          ${it.tags.length ? `<div class="item-tags">${it.tags.map(t=>`<span class="tag ${t}">${TAGLABEL[t]}</span>`).join("")}</div>` : ""}
+          <button class="add" data-add="${it.id}" aria-label="Add ${esc(it.name)} to order">Add</button>
+        </li>`).join("")}
+    </ul>
+  </section>`).join("");
+
+tabs.addEventListener("click", e => {
+  const b = e.target.closest(".tab"); if(!b) return;
+  document.getElementById("cat-" + b.dataset.target).scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+});
+const setTab = id => tabs.querySelectorAll(".tab").forEach(t => {
+  const on = t.dataset.target === id;
+  t.setAttribute("aria-current", on);
+  if(on) t.scrollIntoView({block:"nearest", inline:"center"});
+});
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if(en.isIntersecting) setTab(en.target.id.replace("cat-","")); });
+}, {rootMargin:"-45% 0px -50% 0px"});
+document.querySelectorAll(".cat").forEach(s => io.observe(s));
+
+/* ---------- order ---------- */
+const cart = {}; // key -> {name, price, qty}
+let placed = null;
+const drawer = document.getElementById("drawer");
+const content = document.getElementById("orderContent");
+const trayBtn = document.getElementById("trayBtn");
+const barOrder = document.getElementById("barOrder");
+
+function addToCart(key, name, price){
+  if(!cart[key]) cart[key] = {name, price, qty:0};
+  cart[key].qty++;
+  placed = null;
+  refresh();
+}
+function totals(){
+  let count=0, sum=0;
+  Object.values(cart).forEach(l => {count+=l.qty; sum+=l.qty*l.price;});
+  return {count, sum};
+}
+function refresh(){
+  const {count, sum} = totals();
+  trayBtn.textContent = `Your order (${count})  ${fmt(sum)}`;
+  trayBtn.classList.toggle("show", count>0);
+  barOrder.textContent = count ? `Order (${count}) ${fmt(sum)}` : "Order now";
+  document.querySelectorAll("[data-add]").forEach(b => {
+    const q = cart[b.dataset.add]?.qty || 0;
+    b.textContent = q ? `Added ${q}` : "Add";
+    b.classList.toggle("in", q>0);
+  });
+  renderDrawer();
+}
+function renderDrawer(){
+  if(placed){
+    content.innerHTML = `<div class="lines" style="padding-top:28px">
+      <div class="done-msg"><h4>Order placed</h4><p>Token number ${placed.token}. Ready at the counter in about ${placed.mins} minutes.</p></div>
+      <p style="color:var(--muted);margin-top:18px">Show this token at pickup. You earned 1 punch on your traveller card.</p></div>
+      <div class="panel-foot"><button class="btn btn-red" data-close>Back to the menu</button></div>`;
+    return;
+  }
+  const {count, sum} = totals();
+  const lines = Object.entries(cart).filter(([,l]) => l.qty>0);
+  if(!count){
+    content.innerHTML = `<div class="lines"><p class="empty">Nothing here yet. Add a dosa, an idly or a coffee from the menu to start your order.</p></div>
+      <div class="panel-foot"><a class="btn btn-red" href="#menu" data-close>Browse the menu</a></div>`;
+    return;
+  }
+  content.innerHTML = `<ul class="lines">${lines.map(([k,l]) => `
+    <li class="line"><strong>${esc(l.name)}</strong><span>${fmt(l.price*l.qty)}</span>
+      <div class="qty"><button data-dec="${k}" aria-label="Remove one ${esc(l.name)}">−</button><span>${l.qty}</span><button data-inc="${k}" aria-label="Add one ${esc(l.name)}">+</button></div></li>`).join("")}
+    </ul>
+    <div class="panel-foot">
+      <div class="total"><span>Total</span><span>${fmt(sum)}</span></div>
+      <button class="btn btn-red" id="placeOrder">Place order</button>
+    </div>`;
+}
+content.addEventListener("click", e => {
+  const inc = e.target.closest("[data-inc]"), dec = e.target.closest("[data-dec]");
+  if(inc){ cart[inc.dataset.inc].qty++; refresh(); }
+  if(dec){ const l = cart[dec.dataset.dec]; l.qty--; if(l.qty<=0) delete cart[dec.dataset.dec]; refresh(); }
+  if(e.target.id === "placeOrder"){
+    const {count} = totals();
+    placed = {token: 20 + Math.floor(Math.random()*80), mins: Math.min(6 + count*2, 20)};
+    Object.keys(cart).forEach(k => delete cart[k]);
+    punches = Math.min(punches+1, 9); drawHoles();
+    refresh();
+  }
+});
+document.addEventListener("click", e => {
+  const add = e.target.closest("[data-add]");
+  if(add){ const it = allItems[add.dataset.add]; addToCart(it.id, it.name, it.price); }
+  if(e.target.closest("[data-open-order]")){ e.preventDefault(); openDrawer(); }
+  if(e.target.closest("[data-close]")) closeDrawer();
+});
+let lastFocus;
+function openDrawer(){ lastFocus=document.activeElement; renderDrawer(); drawer.classList.add("open"); drawer.setAttribute("aria-hidden","false"); drawer.querySelector(".close").focus(); }
+function closeDrawer(){ drawer.classList.remove("open"); drawer.setAttribute("aria-hidden","true"); if(placed){placed=null; renderDrawer();} lastFocus && lastFocus.focus && lastFocus.focus(); }
+document.addEventListener("keydown", e => { if(e.key==="Escape" && drawer.classList.contains("open")) closeDrawer(); });
+
+/* ---------- coffee strength ---------- */
+const STRENGTH = {
+  light:{note:"More milk, a gentle decoction. Good with a sweet.", price:40, name:"Filter coffee, light"},
+  regular:{note:"The house pour. Balanced, frothy, just sweet enough.", price:40, name:"Filter coffee"},
+  strong:{note:"Double decoction, less milk. The one that wakes you up.", price:50, name:"Strong filter coffee"}
+};
+let strength = "regular";
+const note = document.getElementById("strengthNote"), cp = document.getElementById("coffeePrice");
+function setStrength(s){
+  strength = s;
+  document.querySelectorAll(".strength button").forEach(b => b.setAttribute("aria-pressed", b.dataset.s===s));
+  note.textContent = STRENGTH[s].note; cp.textContent = fmt(STRENGTH[s].price);
+}
+document.querySelector(".strength").addEventListener("click", e => { const b=e.target.closest("button"); if(b) setStrength(b.dataset.s); });
+setStrength("regular");
+document.getElementById("addCoffee").addEventListener("click", e => {
+  const s = STRENGTH[strength]; addToCart("coffee-"+strength, s.name, s.price);
+  e.target.textContent = "Added"; setTimeout(()=> e.target.textContent = "Add to order", 1200);
+});
+
+/* ---------- punch card ---------- */
+let punches = 3;
+const holes = document.getElementById("holes"), hint = document.getElementById("punchHint");
+function drawHoles(){
+  holes.innerHTML = Array.from({length:10}, (_,i) => {
+    if(i===9) return `<button class="hole free" aria-label="10th visit, free">Free</button>`;
+    const done = i < punches;
+    return `<button class="hole ${done?"done":""}" data-h="${i}" aria-label="Visit ${i+1}${done?", punched":""}">${done?"✓":i+1}</button>`;
+  }).join("");
+  hint.textContent = punches>=9 ? "Card full. Your next dosa or coffee is free." : `${punches} of 9 punches. Your 10th is free.`;
+}
+holes.addEventListener("click", e => { const h=e.target.closest("[data-h]"); if(!h) return; const i=+h.dataset.h; punches = (i < punches) ? i : i+1; drawHoles(); });
+drawHoles();
+document.getElementById("joinCard").addEventListener("click", e => {
+  document.getElementById("bPhone").focus();
+  e.target.textContent = "Enter your number in the booking form below";
+});
+
+/* ---------- booking ---------- */
+const bTime = document.getElementById("bTime");
+for(let h=7; h<=22; h++){ ["00","30"].forEach(m => { const hr=((h+11)%12)+1; bTime.insertAdjacentHTML("beforeend", `<option>${hr}:${m} ${h<12?"am":"pm"}</option>`); }); }
+const bDate = document.getElementById("bDate");
+const today = new Date(); const iso = d => d.toISOString().slice(0,10);
+bDate.min = iso(today); bDate.value = iso(today);
+document.getElementById("bookForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const name = document.getElementById("bName").value.trim();
+  const phone = document.getElementById("bPhone").value.replace(/\D/g,"");
+  let ok = true;
+  document.getElementById("eName").textContent = name ? "" : (ok=false, "Enter a name for the booking.");
+  document.getElementById("ePhone").textContent = phone.length===10 ? "" : (ok=false, "Enter a 10-digit mobile number.");
+  document.getElementById("eDate").textContent = bDate.value && bDate.value >= bDate.min ? "" : (ok=false, "Pick today or a later date.");
+  if(!ok) return;
+  const guests = document.getElementById("bGuests").value;
+  const d = new Date(bDate.value + "T00:00").toLocaleDateString("en-IN",{weekday:"long", day:"numeric", month:"long"});
+  e.target.outerHTML = `<div class="done-msg" role="status"><h4>Table booked</h4><p>${esc(name)}, table for ${guests} on ${d} at ${bTime.value}. We will text ${phone.slice(0,2)}xxxxxx${phone.slice(-2)} to confirm.</p></div>`;
+});
+
+/* ---------- newsletter ---------- */
+document.getElementById("newsForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = document.getElementById("nEmail").value.trim(), m = document.getElementById("nMsg");
+  if(!/^\S+@\S+\.\S+$/.test(v)){ m.textContent = "Enter an email like name@email.com."; return; }
+  m.style.color = "#BFE3C4"; m.textContent = "Subscribed. See you when the specials board changes.";
+  e.target.reset();
+});
+
+
+/* ---------- cartoons ---------- */
+const INK="#111";
+function limb(d,skin){return `<path d="${d}" stroke="${INK}" stroke-width="13" stroke-linecap="round" fill="none"/><path d="${d}" stroke="${skin}" stroke-width="7.5" stroke-linecap="round" fill="none"/>`;}
+function dosaCone(x,y,r=0,s=1){return `<g transform="translate(${x} ${y}) rotate(${r}) scale(${s})"><path d="M0,0 L48,-15 L46,13 Z" fill="#E9A53C" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/><path d="M10,-2 l14,-4 M16,6 l16,-2" stroke="#A9601A" stroke-width="2"/><ellipse cx="47" cy="-1" rx="5.5" ry="14" fill="#F4C94A" stroke="${INK}" stroke-width="2.5"/></g>`;}
+function person(o){
+  const {x=0,y=0,s=1,flip=false,skin="#C98A5B",hair="#2A1A10",shirt="#FFFFFF",shorts="#2E5AA8",mouth="grin",arm="down",cap=false,stache=false,legs="stand",eyes="open",brows="none",bag=false}=o;
+  let g="";
+  // legs
+  if(legs==="run"){
+    g+=`<g class="leg a">${limb("M-7,-44 L-7,-8",skin)}<path d="M-16,-5 h16" stroke="${INK}" stroke-width="8" stroke-linecap="round"/></g>`;
+    g+=`<g class="leg b">${limb("M7,-44 L7,-8",skin)}<path d="M-2,-5 h16" stroke="${INK}" stroke-width="8" stroke-linecap="round"/></g>`;
+  } else {
+    g+=limb("M-10,-44 L-12,-8",skin)+limb("M10,-44 L12,-8",skin);
+    g+=`<path d="M-22,-5 h14 M8,-5 h14" stroke="${INK}" stroke-width="8" stroke-linecap="round"/>`;
+  }
+  g+=`<path d="M-25,-64 H25 L27,-40 H4 L0,-48 L-4,-40 H-27 Z" fill="${shorts}" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>`;
+  // long dosa behind arms
+  if(arm==="both") g+=`<path d="M-80,-96 L130,-88 L128,-70 L-80,-80 Z" fill="#E9A53C" stroke="${INK}" stroke-width="2.5"/><path d="M-60,-86 h20 M-10,-83 h24 M40,-80 h22 M90,-78 h20" stroke="#A9601A" stroke-width="2"/><ellipse cx="129" cy="-79" rx="5" ry="10" fill="#F4C94A" stroke="${INK}" stroke-width="2.5"/>`;
+  g+=`<path d="M-27,-100 Q0,-110 27,-100 L29,-60 H-29 Z" fill="${shirt}" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>`;
+  g+=`<path d="M-9,-106 L0,-94 L9,-106" fill="none" stroke="${INK}" stroke-width="2.5"/>`;
+  if(bag) g+=`<path d="M-24,-100 L22,-66" stroke="#7A4A22" stroke-width="5"/><rect x="14" y="-72" width="22" height="18" rx="3" fill="#B07A3A" stroke="${INK}" stroke-width="2.5"/>`;
+  // arms
+  const L = legs==="run" ? `<g class="arm-swing">${limb("M-24,-96 Q-40,-82 -44,-66",skin)}</g>` : limb("M-24,-96 Q-36,-80 -34,-62",skin);
+  let R="";
+  if(arm==="down") R=limb("M24,-96 Q36,-80 34,-62",skin);
+  if(arm==="eat"){ R=dosaCone(6,-113,-8,.8)+limb("M24,-96 Q44,-96 30,-110",skin); }
+  if(arm==="raise"){ R=limb("M24,-96 Q44,-118 42,-146",skin)+dosaCone(40,-146,-70,.9); }
+  if(arm==="both"){ R=limb("M24,-96 Q34,-86 40,-84",skin); }
+  if(arm==="point"){ R=limb("M24,-96 Q46,-108 62,-122",skin); }
+  if(arm==="reach"){ R=limb("M24,-96 Q50,-96 72,-92",skin); }
+  const Lx = arm==="both" ? limb("M-24,-96 Q-12,-82 4,-86",skin) : L;
+  g+=Lx+R;
+  // head
+  g+=`<circle cx="-25" cy="-128" r="5.5" fill="${skin}" stroke="${INK}" stroke-width="2"/><circle cx="25" cy="-128" r="5.5" fill="${skin}" stroke="${INK}" stroke-width="2"/>`;
+  g+=`<circle cy="-130" r="25" fill="${skin}" stroke="${INK}" stroke-width="2.5"/>`;
+  if(cap){ g+=`<path d="M-27,-140 Q-24,-172 0,-172 Q24,-172 27,-140 Z" fill="#B50B0B" stroke="${INK}" stroke-width="2.5"/><path d="M-32,-142 H32" stroke="${INK}" stroke-width="7" stroke-linecap="round"/><circle cy="-156" r="5" fill="#E9A21F" stroke="${INK}" stroke-width="2"/>`; }
+  else { g+=`<path d="M-27,-130 Q-32,-162 -2,-161 Q32,-164 27,-128 Q20,-146 6,-144 Q-6,-154 -16,-142 Q-22,-140 -27,-130 Z" fill="${hair}" stroke="${INK}" stroke-width="2"/>`; }
+  if(eyes==="happy") g+=`<path d="M-14,-129 q5,-6 10,0 M4,-129 q5,-6 10,0" stroke="${INK}" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+  else if(eyes==="big") g+=`<circle cx="-9" cy="-131" r="6" fill="#fff" stroke="${INK}" stroke-width="2"/><circle cx="9" cy="-131" r="6" fill="#fff" stroke="${INK}" stroke-width="2"/><circle cx="-8" cy="-131" r="2.5" fill="${INK}"/><circle cx="10" cy="-131" r="2.5" fill="${INK}"/>`;
+  else g+=`<circle cx="-9" cy="-131" r="3" fill="${INK}"/><circle cx="9" cy="-131" r="3" fill="${INK}"/>`;
+  if(brows==="angry") g+=`<path d="M-17,-144 l12,5 M17,-144 l-12,5" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>`;
+  if(brows==="up") g+=`<path d="M-15,-143 q6,-5 11,-1 M4,-144 q6,-4 11,1" stroke="${INK}" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+  g+=`<path d="M0,-128 q-4,6 1,8" stroke="${INK}" stroke-width="2" fill="none"/>`;
+  g+=`<circle cx="-15" cy="-120" r="4" fill="#E0685A" opacity=".45"/><circle cx="15" cy="-120" r="4" fill="#E0685A" opacity=".45"/>`;
+  const my = stache ? 4 : 0;
+  if(mouth==="open") g+=`<path d="M-9,${-116+my} Q0,${-100+my} 9,${-116+my} Z" fill="#7A1A1A" stroke="${INK}" stroke-width="2"/>`;
+  if(mouth==="shout") g+=`<path d="M-11,${-117+my} Q0,${-94+my} 11,${-117+my} Z" fill="#7A1A1A" stroke="${INK}" stroke-width="2.5"/><path d="M-5,${-106+my} q5,4 10,0" stroke="#E0685A" stroke-width="3"/>`;
+  if(mouth==="grin") g+=`<path d="M-11,${-119+my} Q0,${-106+my} 11,${-119+my}" fill="#fff" stroke="${INK}" stroke-width="2.5"/>`;
+  if(mouth==="chew") g+=`<ellipse class="chew" cx="0" cy="${-114+my}" rx="7" ry="5" fill="#7A1A1A" stroke="${INK}" stroke-width="2"/>`;
+  if(stache) g+=`<path d="M-1,-121 Q-14,-130 -26,-121 Q-34,-114 -26,-109 Q-26,-116 -14,-117 Q-6,-116 -1,-117 Z M1,-121 Q14,-130 26,-121 Q34,-114 26,-109 Q26,-116 14,-117 Q6,-116 1,-117 Z" fill="${INK}"/>`;
+  return `<g transform="translate(${x} ${y})"><g transform="scale(${flip?-s:s} ${s})"><g class="${legs==="run"?"bob":""}">${g}</g></g></g>`;
+}
+function bubble(cx,cy,w,h,lines,tx,ty,size=16){
+  const bx=Math.max(cx-w/3,Math.min(cx+w/3,tx));
+  const bot=cy+h/2;
+  const mx=bx+(tx-bx)*.7, my=bot+(ty-bot)*.7;
+  let t=lines.map((l,i)=>`<text x="${cx}" y="${cy+(i-(lines.length-1)/2)*(size+2)+size*.35}" text-anchor="middle" font-size="${size}" class="bubble-t" fill="${INK}">${l}</text>`).join("");
+  return `<g><path d="M${bx-10},${cy} L${tx},${ty} L${bx+10},${cy} Z" fill="#fff" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/><rect x="${cx-w/2}" y="${cy-h/2}" width="${w}" height="${h}" rx="${h/2}" fill="#fff" stroke="${INK}" stroke-width="2.5"/><path d="M${bx-7},${bot-3} L${mx},${my} L${bx+7},${bot-3} Z" fill="#fff"/>${t}</g>`;
+}
+function sfx(x,y,text,rot=-8,size=40,fill="#E9A21F"){
+  return `<g transform="translate(${x} ${y})"><text class="sfx pop" text-anchor="middle" font-size="${size}" fill="${fill}" stroke="${INK}" stroke-width="2.5" paint-order="stroke" transform="rotate(${rot})">${text}</text></g>`;
+}
+const bush = (x,y,r) => `<g fill="#6FA84A" stroke="${INK}" stroke-width="2"><circle cx="${x}" cy="${y}" r="${r}"/><circle cx="${x+r*.9}" cy="${y+4}" r="${r*.8}"/><circle cx="${x-r*.9}" cy="${y+6}" r="${r*.75}"/></g>`;
+const KHAKI={shirt:"#D2B06E",shorts:"#6B4A2B",cap:true,stache:true,skin:"#B97B4E"};
+
+const P = [
+ {cap:"7:02 am. The tawa is ready.", w:440, h:280, art:`
+   <rect width="440" height="280" fill="#F4D99C"/>
+   <rect y="0" width="440" height="120" fill="#F7E7B8"/>
+   ${[40,110,180].map(x=>`<rect x="${x}" y="18" width="50" height="60" fill="#8FC7D9" stroke="${INK}" stroke-width="2.5"/><path d="M${x+25},18 v60 M${x},48 h50" stroke="${INK}" stroke-width="2"/>`).join("")}
+   ${bush(60,140,28)}${bush(390,130,30)}
+   <rect x="0" y="200" width="300" height="80" fill="#8A5A34" stroke="${INK}" stroke-width="3"/>
+   <path d="M0,214 H300" stroke="#6B4226" stroke-width="3"/>
+   <ellipse cx="150" cy="198" rx="104" ry="20" fill="#2A2A2A" stroke="${INK}" stroke-width="3"/>
+   <ellipse cx="150" cy="194" rx="80" ry="13" fill="#E9A53C" stroke="#A9601A" stroke-width="2"/>
+   <path d="M90,194 q60,-10 120,0" stroke="#A9601A" stroke-width="2" fill="none"/>
+   <g class="steam" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"><path d="M110,172 q-10,-14 0,-28"/><path d="M150,168 q-10,-16 0,-32"/><path d="M190,172 q-10,-14 0,-28"/></g>
+   ${sfx(90,120,"SIZZLE!",-10,42)}
+   ${person({x:350,y:280,s:1.25,flip:true,arm:"point",mouth:"shout",brows:"angry",...KHAKI})}
+   ${bubble(250,72,190,56,["BENNE DOSA!","EXTRA BUTTER!!"],320,108,17)}
+ `},
+ {cap:"Order number 42.", w:360, h:280, art:`
+   <rect width="360" height="280" fill="#F2D39A"/>
+   <rect x="0" y="0" width="360" height="110" fill="#E9C27E"/>
+   <path d="M20,20 h320 v60 h-320 z" fill="none" stroke="${INK}" stroke-width="2.5"/>
+   <path d="M60,20 v60 M100,20 v60 M140,20 v60 M180,20 v60 M220,20 v60 M260,20 v60 M300,20 v60 M20,50 h320" stroke="${INK}" stroke-width="1.5"/>
+   ${bush(330,150,24)}
+   ${person({x:120,y:280,s:1.05,arm:"both",mouth:"grin",eyes:"happy",shirt:"#F7F7F7",shorts:"#2E5AA8"})}
+   ${person({x:300,y:280,s:.95,flip:true,arm:"down",mouth:"open",eyes:"big",brows:"up",shirt:"#7CC3D6",shorts:"#3A3A3A",hair:"#3B2414",skin:"#D9A273"})}
+   ${bubble(110,112,190,54,["IT'S LONGER THAN","MY SCALE!!"],120,142,15)}
+   ${bubble(290,44,110,40,["SHARE, NA?"],300,120,15)}
+ `},
+ {cap:"The master's plate.", w:440, h:280, art:`
+   <rect width="440" height="280" fill="#F4D99C"/>
+   ${bush(30,120,34)}${bush(200,100,30)}${bush(420,110,36)}
+   <rect x="0" y="210" width="440" height="70" fill="#D9B77A"/>
+   ${person({x:120,y:280,s:1.25,arm:"eat",mouth:"chew",brows:"angry",...KHAKI})}
+   ${person({x:300,y:280,s:.9,flip:true,arm:"reach",mouth:"grin",eyes:"open",shirt:"#F28C6B",shorts:"#2E5AA8",bag:true})}
+   ${person({x:380,y:280,s:.85,flip:true,arm:"down",mouth:"open",eyes:"big",brows:"up",shirt:"#9BD18A",shorts:"#5A3E2B",skin:"#A86B42"})}
+   ${bubble(150,66,210,52,["DON'T YOU DARE","TOUCH MY DOSA!"],128,100,16)}
+   ${bubble(330,80,130,40,["just one bite..."],320,120,14)}
+ `},
+ {cap:"12 seconds later.", w:360, h:280, art:`
+   <rect width="360" height="280" fill="#F2D39A"/>
+   ${bush(60,110,26)}${bush(300,96,28)}
+   <g class="dash" stroke="${INK}" stroke-width="3" stroke-linecap="round"><path d="M230,190 h40"/><path d="M240,215 h50"/><path d="M110,200 h36"/></g>
+   ${person({x:280,y:280,s:.95,legs:"run",arm:"raise",mouth:"grin",eyes:"happy",shirt:"#F28C6B",shorts:"#2E5AA8",bag:true})}
+   ${person({x:175,y:280,s:.85,legs:"run",arm:"down",mouth:"open",eyes:"big",shirt:"#9BD18A",shorts:"#5A3E2B",skin:"#A86B42"})}
+   ${person({x:60,y:280,s:1.05,legs:"run",arm:"point",mouth:"shout",brows:"angry",...KHAKI})}
+   ${sfx(90,64,"CRUNCH!",-12,36,"#F4C94A")}
+   ${bubble(270,40,130,40,["RUNNNN!"],285,86,17)}
+ `}
+];
+document.getElementById("panels").innerHTML = P.map(p=>`<figure class="cpanel"><svg viewBox="0 0 ${p.w} ${p.h}" role="img" aria-label="${p.cap}">${p.art}</svg><figcaption>${p.cap}</figcaption></figure>`).join("");
+
+// side runner
+document.getElementById("runnerSvg").innerHTML =
+  `<g class="dash" stroke="${INK}" stroke-width="3" stroke-linecap="round"><path d="M-60,-60 h22"/><path d="M-66,-30 h28"/></g>` +
+  `<ellipse cx="0" cy="-2" rx="34" ry="5" fill="rgba(0,0,0,.18)"/>` +
+  person({x:0,y:0,s:.95,legs:"run",arm:"raise",mouth:"grin",eyes:"happy",shirt:"#FFFFFF",shorts:"#B50B0B",bag:true});
+const lines = ["Dosa time!!","Hot benne dosa!","Tap to order","Filter coffee?","Chutney refill free!"];
+let li=0; const say=document.getElementById("runnerSay");
+if(!matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(()=>{li=(li+1)%lines.length; say.textContent=lines[li];},3200);
+document.getElementById("runner").addEventListener("click", openDrawer);
+document.getElementById("runnerX").addEventListener("click", ()=>{document.getElementById("runner").classList.add("hide");document.getElementById("runnerX").classList.add("hide");});
+
+/* ---------- theme ---------- */
+const root = document.documentElement;
+try{ const t = localStorage.getItem("fc-theme"); if(t) root.dataset.theme = t; }catch(_){}
+document.getElementById("themeToggle").addEventListener("click", () => {
+  const dark = root.dataset.theme ? root.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+  try{ localStorage.setItem("fc-theme", root.dataset.theme); }catch(_){}
+});
+
+refresh();
+</script>
+</body>
+</html>
